@@ -3,261 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رمضان ریلیف پیکج 2026 | حکومتِ پاکستان</title>
+    <title>Zaigham News - ڈیجیٹل سروس پورٹل</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f7f9f9; color: #333; text-align: right; }
-        .top-header { background: #004d26; color: white; padding: 10px 20px; display: flex; justify-content: space-between; font-size: 14px; border-bottom: 3px solid #ffd700; }
-        header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .logo-box h1 { margin: 0; color: #004d26; font-size: 20px; }
-        .logo-box p { margin: 0; font-size: 12px; color: #666; font-weight: bold; }
-        /* مین کارڈ اور کنٹینر */
-        .card { max-width: 480px; margin: 30px auto; background: white; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; border-top: 5px solid #004d26; }
-        .card-body { padding: 25px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; text-align: right; }
+        .container { max-width: 500px; margin: 40px auto; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; border-top: 6px solid #004d26; }
+        .header { background: #004d26; color: white; padding: 20px; text-align: center; }
+        .content { padding: 25px; }
         
-        /* ان پٹ فیلڈز */
-        .input-group { margin-bottom: 20px; text-align: right; }
-        .input-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; font-size: 15px; }
-        input[type="text"] { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 18px; box-sizing: border-box; text-align: center; background: #fafafa; }
-        input:focus { border-color: #004d26; outline: none; background: #fff; }
+        /* حصہ 2: ان پٹ اور بٹن ڈیزائن */
+        .input-box { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; text-align: center; }
+        .btn { width: 100%; background: #28a745; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #218838; }
 
-        /* بٹن ڈیزائن */
-        .btn-check { width: 100%; background: #28a745; color: white; border: none; padding: 16px; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn-check:hover { background: #218838; transform: translateY(-2px); }
+        /* حصہ 3: خفیہ کنٹرول پینل (آپشنز A, B, C, D) */
+        .admin-options { background: #f9f9f9; padding: 10px; border: 1px dashed #bbb; margin-top: 15px; border-radius: 6px; }
+        .admin-options label { font-size: 12px; color: #666; margin-left: 10px; cursor: pointer; }
 
-        /* ریڈیو بٹنز (A اور B) کا ڈیزائن */
-        .options-group { display: flex; justify-content: space-around; margin: 20px 0; background: #f1f1f1; padding: 10px; border-radius: 6px; }
-        .options-group label { cursor: pointer; font-weight: bold; color: #004d26; font-size: 16px; display: flex; align-items: center; }
-        .options-group input { margin-left: 8px; transform: scale(1.2); }
-        /* رزلٹ باکسز کا اسٹائل */
-        .result-area { display: none; margin-top: 25px; padding: 20px; border-radius: 8px; text-align: center; line-height: 1.8; }
-        
-        /* کامیابی کا باکس (آپشن A) */
-        .success-box { background-color: #e8f5e9; border: 2px solid #28a745; color: #155724; }
-        .success-box h2 { color: #28a745; margin-top: 0; font-size: 24px; }
-        .amount-text { font-size: 30px; font-weight: bold; color: #004d26; display: block; margin: 10px 0; }
+        /* حصہ 4: رزلٹ باکسز کے رنگ */
+        .result-box { display: none; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center; border: 2px solid; }
+        .res-a { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; } /* سبز - کامیابی */
+        .res-b { background: #fffde7; border-color: #fbc02d; color: #856404; } /* پیلا - جانچ پڑتال */
+        .res-c { background: #e3f2fd; border-color: #1976d2; color: #0d47a1; } /* نیلا - رجسٹریشن */
+        .res-d { background: #ffebee; border-color: #d32f2f; color: #b71c1c; } /* سرخ - نااہل */
 
-        /* جانچ پڑتال کا باکس (آپشن B) */
-        .pending-box { background-color: #fffde7; border: 2px solid #fbc02d; color: #856404; text-align: justify; }
-        .pending-box h3 { text-align: center; margin-top: 0; }
-
-        /* لوڈنگ اینیمیشن */
-        #loader { display: none; text-align: center; margin: 20px 0; }
+        /* حصہ 5: لوڈنگ سپنر */
+        #loader { display: none; margin: 20px 0; }
         .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #004d26; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* فوٹر اسٹائل */
-        footer { background: #1a1a1a; color: #999; text-align: center; padding: 20px; font-size: 12px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <div class="top-header">
-        <div>حکومتِ پاکستان | آفیشل ڈیجیٹل پورٹل</div>
-        <div id="current-date">تاریخ: loading...</div>
+<div class="container">
+    <div class="header">
+        <h2 style="margin:0;">Zaigham Digital Help Desk</h2>
+        <p style="font-size:12px; margin:5px 0 0 0;">عوامی خدمت کا معتبر ادارہ</p>
     </div>
 
-    <header>
-        <div class="logo-box">
-            <h1>رمضان ریلیف پیکج 2026</h1>
-            <p>بینظیر انکم سپورٹ پروگرام (BISP)</p>
+    <div class="content">
+        <div id="step-1">
+            <h3 style="text-align:center; color:#004d26;">فیس کی تصدیق</h3>
+            <p style="font-size:14px; color:#555;">برائے مہربانی 100 روپے فیس جمع کروانے کے بعد حاصل کردہ <b>ایکسیس کوڈ</b> درج کریں:</p>
+            <input type="text" id="accessCode" class="input-box" placeholder="ایکسیس کوڈ یہاں لکھیں">
+            <button class="btn" onclick="checkAccess()">کوڈ کی تصدیق کریں</button>
+            <p id="accessError" style="color:red; display:none; text-align:center; font-size:13px;">❌ غلط کوڈ! دوبارہ کوشش کریں۔</p>
         </div>
-        <div style="border: 1px solid #004d26; padding: 5px 10px; color: #004d26; font-weight: bold; font-size: 12px; text-align: center;">
-            وزارتِ سماجی تحفظ <br> حکومتِ پاکستان
-        </div>
-    </header>
 
-    <div class="card">
-        <div style="background: #f8f9fa; padding: 15px; border-bottom: 1px solid #eee; text-align: center;">
-            <strong style="color: #004d26;">اہلیت کی آن لائن جانچ</strong>
-        </div>
-        
-        <div class="card-body">
-<div id="payment-step">
-    <div style="background: #fff9c4; padding: 15px; border-right: 5px solid #fbc02d; margin-bottom: 20px; text-align: right; border-radius: 4px;">
-        <strong style="color: #856404;">ضروری ہدایت:</strong> <br>
-        رمضان ریلیف چیک کرنے کی سرکاری پروسیسنگ فیس <b>100 روپے</b> ہے۔ فیس جمع کروانے کے بعد حاصل کردہ <b>ایکسیس کوڈ</b> نیچے درج کریں۔
-    </div>
-
-    <div class="input-group">
-        <label>ایکسیس کوڈ (Access Code) درج کریں:</label>
-        <input type="text" id="access_input" placeholder="یہاں کوڈ لکھیں">
-    </div>
-
-    <button class="btn-check" onclick="verifyAccess()">فیس کی تصدیق کریں</button>
-    
-    <p id="pay-error" style="color: #d32f2f; display: none; text-align: center; font-weight: bold; margin-top: 15px; background: #ffebee; padding: 10px; border-radius: 4px;">
-        ⚠️ غلط کوڈ! براہ کرم درست ایکسیس کوڈ درج کریں۔
-    </p>
-</div>
-
-<div id="main-portal" style="display: none;">
-    </div>
-<div class="card-body" style="padding-top: 0;">
-    <div style="text-align: center; margin-bottom: 20px;">
-        <h3 style="color: #004d26; font-size: 22px;">رمضان ریلیف اہلیت کی جانچ</h3>
-        <p style="font-size: 13px; color: #777;">برائے مہربانی اپنا درست شناختی کارڈ اور موبائل نمبر درج کریں</p>
-    </div>
-
-    <div class="input-group">
-        <label>قومی شناختی کارڈ نمبر (CNIC):</label>
-        <input type="text" id="user_cnic" placeholder="38401-XXXXXXX-X" maxlength="15">
-    </div>
-
-    <div class="input-group">
-        <label>رجسٹرڈ موبائل نمبر:</label>
-        <input type="text" id="user_phone" placeholder="03XXXXXXXXX" maxlength="11">
-    </div>
-
-    <div style="background: #f9f9f9; padding: 10px; border-radius: 6px; margin-bottom: 20px; border: 1px dashed #ddd;">
-        <p style="text-align: center; font-size: 12px; margin: 0 0 10px 0; color: #999;">انتخاب کریں (خفیہ):</p>
-        <div class="options-group">
-            <label><input type="radio" name="result_mode" value="A" checked> آپشن اے (A)</label>
-            <label><input type="radio" name="result_mode" value="B"> آپشن بی (B)</label>
-        </div>
-    </div>
-
-    <button class="btn-check" id="searchBtn" onclick="processSearch()">اہلیت چیک کریں (GO)</button>
-
-    <div id="loader">
-        <div class="spinner"></div>
-        <p style="color: #004d26; font-weight: bold; margin-top: 10px;">ڈیٹا بیس سے رابطہ کیا جا رہا ہے...</p>
-    </div>
-</div>
-<div id="result-A" class="result-area success-box">
-    <div style="font-size: 14px; margin-bottom: 5px;">شناختی کارڈ نمبر: <b id="disp-cnic-A"></b></div>
-    <h2 style="margin: 10px 0;">مبارک ہو!</h2>
-    <p style="font-size: 17px; margin: 0;">آپ رمضان ریلیف پیکج کے لیے اہل پائے گئے ہیں۔</p>
-    <span class="amount-text">رقم: 10,000 روپے</span>
-    <p style="font-size: 13px; color: #1b5e20; background: #c8e6c9; padding: 10px; border-radius: 4px;">
-        آپ کی رقم جاری کر دی گئی ہے۔ وصولی کے لیے قریبی مرکز سے رجوع کریں۔
-    </p>
-    <button onclick="location.reload()" style="background:#28a745; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; margin-top:15px;">دوبارہ چیک کریں</button>
-</div>
-
-<div id="result-B" class="result-area pending-box">
-    <div style="font-size: 14px; margin-bottom: 10px; text-align:center;">شناختی کارڈ نمبر: <b id="disp-cnic-B"></b></div>
-    <h3 style="color: #856404; margin-bottom: 10px;">جانچ پڑتال جاری ہے</h3>
-    <div style="font-size: 16px; line-height: 1.8;">
-        آپ کا ڈائنامک رجسٹری میں اندراج ہو چکا ہے۔ آپ کی اہلیت کے بارے میں جانچ پڑتال کی جا رہی ہے۔ مکمل تصدیق کے بعد آپ کو آپ کے فراہم کردہ موبائل نمبر پر <b>8171</b> سے بذریعہ ایس ایم ایس مطلع کیا جائے گا۔
-    </div>
-    <p style="text-align: center; margin-top: 15px;">
-        <button onclick="location.reload()" style="background:#fbc02d; color:#333; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">ٹھیک ہے</button>
-    </p>
-</div>
-
-</div> 
-</div>
-
-<footer style="background-color: #1a1a1a; color: #ffffff; padding: 40px 20px; border-top: 4px solid #004d26;">
-        <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; text-align: right; direction: rtl;">
+        <div id="step-2" style="display:none;">
+            <h3 style="text-align:center; color:#004d26;">اہلیت کی جانچ</h3>
             
-            <div style="flex: 1; min-width: 250px; margin-bottom: 25px; padding: 0 10px;">
-                <h4 style="color: #ffd700; border-bottom: 2px solid #004d26; display: inline-block; padding-bottom: 5px; margin-bottom: 15px;">ضروری معلومات</h4>
-                <p style="font-size: 13px; line-height: 1.8; color: #ccc;">
-                    رمضان ریلیف پیکج حکومتِ پاکستان کا ایک خصوصی اقدام ہے جس کا مقصد مستحق خاندانوں کو اشیائے خوردونوش پر سبسڈی فراہم کرنا ہے۔
-                </p>
+            <label>شناختی کارڈ نمبر (CNIC):</label>
+            <input type="text" id="cnic" class="input-box" placeholder="38401-0000000-0">
+            
+            <label>موبائل نمبر:</label>
+            <input type="text" id="phone" class="input-box" placeholder="03XXXXXXXXX">
+
+            <div class="admin-options">
+                <p style="margin:0 0 5px 0; font-size:11px; font-weight:bold;">رزلٹ کا انتخاب کریں:</p>
+                <label><input type="radio" name="status" value="A" checked> A (اہل)</label>
+                <label><input type="radio" name="status" value="B"> B (جانچ)</label>
+                <label><input type="radio" name="status" value="C"> C (رجسٹر)</label>
+                <label><input type="radio" name="status" value="D"> D (نااہل)</label>
             </div>
 
-            <div style="flex: 1; min-width: 250px; margin-bottom: 25px; padding: 0 10px;">
-                <h4 style="color: #ffd700; border-bottom: 2px solid #004d26; display: inline-block; padding-bottom: 5px; margin-bottom: 15px;">رابطہ اور شکایات</h4>
-                <p style="font-size: 13px; line-height: 1.8; color: #ccc;">
-                    کسی بھی قسم کی معلومات یا شکایت کے لیے ہماری ہیلپ لائن <b>8171</b> پر رابطہ کریں یا قریبی رجسٹریشن مرکز تشریف لائیں۔
-                </p>
-            </div>
+            <button class="btn" style="margin-top:20px;" onclick="startSearch()">اہلیت چیک کریں</button>
         </div>
 
-        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-        
-        <p style="font-size: 11px; color: #777; text-align: center; margin: 0;">
-            حقوق نقل واشاعت &copy; <span id="copyright-year">2026</span> حکومتِ پاکستان۔ جملہ حقوق محفوظ ہیں۔ <br>
-            یہ پورٹل بینظیر انکم سپورٹ پروگرام (BISP) کے تعاون سے چلایا جا رہا ہے۔
-        </p>
-    </footer>
+        <div id="loader">
+            <div class="spinner"></div>
+            <p style="text-align:center; font-weight:bold; color:#004d26;">ڈیٹا بیس سے رابطہ ہو رہا ہے... (10 سیکنڈ انتظار کریں)</p>
+        </div>
+
+        <div id="resA" class="result-box res-a">
+            <h3>مبارک ہو! 🎉</h3>
+            <p>آپ رمضان ریلیف پیکج کے لیے <b>اہل</b> پائے گئے ہیں۔ آپ کی 10,000 روپے کی رقم جاری کر دی گئی ہے۔</p>
+        </div>
+
+        <div id="resB" class="result-box res-b">
+            <h3>جانچ پڑتال جاری ⏳</h3>
+            <p>آپ کے کوائف کی جانچ پڑتال کی جا رہی ہے۔ براہ کرم 8171 سے میسج کا انتظار کریں یا کچھ دن بعد دوبارہ چیک کریں۔</p>
+        </div>
+
+        <div id="resC" class="result-box res-c">
+            <h3>رجسٹریشن کی ضرورت 📝</h3>
+            <p>آپ کا ریکارڈ موجود نہیں ہے۔ براہ کرم قریبی بے نظیر انکم سپورٹ تحصیل دفتر جا کر اپنا سروے کروائیں۔</p>
+        </div>
+
+        <div id="resD" class="result-box res-d">
+            <h3>معذرت! ❌</h3>
+            <p>آپ فراہم کردہ معلومات کے مطابق اس پروگرام کے لیے اہل نہیں ہیں۔ مزید معلومات کے لیے ہیلپ لائن پر رابطہ کریں۔</p>
+        </div>
+    </div>
+
+    <div style="background:#f1f1f1; padding:15px; font-size:11px; color:#777; text-align:center; border-top:1px solid #ddd;">
+        <b>قانونی نوٹ:</b> یہ ایک نجی پورٹل (Zaigham News) ہے۔ ہم صرف عوام کی رہنمائی کرتے ہیں۔ 100 روپے فیس ہماری سروس اور ویب سائٹ کے اخراجات کے لیے ہے۔
+    </div>
+</div>
+
 <script>
-    // 1. آج کی تاریخ اور سال خود بخود اپ ڈیٹ کرنے کا فنکشن
-    function updateDateTime() {
-        const now = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = now.toLocaleDateString('ur-PK', options);
-        const currentYear = now.getFullYear();
-
-        // ٹاپ بار میں تاریخ دکھائیں
-        document.getElementById('current-date').innerText = "تاریخ: " + formattedDate;
-        
-        // فوٹر میں سال دکھائیں (2026، 2027 وغیرہ خود بخود تبدیل ہوگا)
-        document.getElementById('copyright-year').innerText = currentYear;
-    }
-
-    // صفحہ لوڈ ہوتے ہی تاریخ اپ ڈیٹ کریں
-    window.onload = updateDateTime;
-
-    // 2. ایکسیس کوڈ 'zaigham7866' چیک کرنے کا فنکشن
-    function verifyAccess() {
-        var enteredCode = document.getElementById("access_input").value;
-        var paymentStep = document.getElementById("payment-step");
-        var mainPortal = document.getElementById("main-portal");
-        var errorMsg = document.getElementById("pay-error");
-
-        // آپ کا مخصوص خفیہ کوڈ
-        if (enteredCode === "zaigham7866") {
-            // اگر کوڈ صحیح ہو تو پیمنٹ والا حصہ چھپا دیں اور مین فارم دکھا دیں
-            paymentStep.style.display = "none";
-            mainPortal.style.display = "block";
-            // ایک چھوٹا سا الرٹ میسج (اختیاری)
-            alert("فیس کی تصدیق ہو چکی ہے۔ شکریہ!");
+    // حصہ 13: ایکسیس کوڈ کی لاجک
+    function checkAccess() {
+        var code = document.getElementById("accessCode").value;
+        if (code === "zaigham7866") {
+            document.getElementById("step-1").style.display = "none";
+            document.getElementById("step-2").style.display = "block";
         } else {
-            // اگر کوڈ غلط ہو تو ایرر میسج دکھائیں
-            errorMsg.style.display = "block";
-            setTimeout(function() {
-                errorMsg.style.display = "none";
-            }, 3000); // 3 سیکنڈ بعد میسج غائب ہو جائے گا
+            document.getElementById("accessError").style.display = "block";
         }
     }
-</script>
-<script>
-    // 3. سرچ اور رزلٹ کنٹرول کرنے کا فنکشن (اے اور بی آپشنز)
-    function processSearch() {
-        var cnic = document.getElementById("user_cnic").value;
-        var phone = document.getElementById("user_phone").value;
-        var mode = document.querySelector('input[name="result_mode"]:checked').value;
-        
-        var btn = document.getElementById("searchBtn");
-        var loader = document.getElementById("loader");
-        var resA = document.getElementById("result-A");
-        var resB = document.getElementById("result-B");
 
-        // پہلے سے کھلے رزلٹ چھپائیں
-        resA.style.display = "none";
-        resB.style.display = "none";
+    // حصہ 14: سرچ اور 10 سیکنڈ کا ٹائمر
+    function startSearch() {
+        var cnic = document.getElementById("cnic").value;
+        if(cnic === "") { alert("شناختی کارڈ لکھیں"); return; }
 
-        // معلومات چیک کریں
-        if (cnic.length < 13 || phone.length < 11) {
-            alert("براہ کرم مکمل شناختی کارڈ اور موبائل نمبر درج کریں۔");
-            return;
-        }
+        // فارم چھپائیں اور لوڈنگ دکھائیں
+        document.getElementById("step-2").style.display = "none";
+        document.getElementById("loader").style.display = "block";
 
-        // لوڈنگ شروع کریں (اصلی ہونے کا احساس دلانے کے لیے)
-        btn.style.display = "none";
-        loader.style.display = "block";
-
-        // 3 سیکنڈ کی "پروسیسنگ" کے بعد نتیجہ دکھائیں
+        // 10 سیکنڈ کا انتظار (جیسا آپ نے کہا)
         setTimeout(function() {
-            loader.style.display = "none";
-            btn.style.display = "block";
+            document.getElementById("loader").style.display = "none";
+            showResult();
+        }, 10000); 
+    }
 
-            if (mode === "A") {
-                // اگر آپ نے 'A' منتخب کیا ہے (کامیابی)
-                document.getElementById("disp-cnic-A").innerText = cnic;
-                resA.style.display = "block";
-                // اسکرین کو رزلٹ کی طرف اسکرول کریں
-                resA.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // اگر آپ نے 'B' منتخب کیا ہے (جانچ پڑتال)
-                document.getElementById("disp-cnic-B").innerText = cnic;
-                resB.style.display = "block";
-                resB.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 3000);
+    // حصہ 15: رزلٹ دکھانے کا فنکشن
+    function showResult() {
+        var selectedMode = document.querySelector('input[name="status"]:checked').value;
+        
+        // تمام پرانے رزلٹ بند کریں
+        document.querySelectorAll('.result-box').forEach(el => el.style.display = 'none');
+
+        // منتخب کردہ رزلٹ دکھائیں
+        if (selectedMode === 'A') document.getElementById("resA").style.display = "block";
+        if (selectedMode === 'B') document.getElementById("resB").style.display = "block";
+        if (selectedMode === 'C') document.getElementById("resC").style.display = "block";
+        if (selectedMode === 'D') document.getElementById("resD").style.display = "block";
     }
 </script>
 

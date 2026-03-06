@@ -3,180 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حکومتِ پاکستان | رمضان ریلیف انفارمیشن پورٹل</title>
+    <title>8171 ویب پورٹل | حکومتِ پاکستان</title>
     <style>
-        /* ویب سائٹ کا مین ڈیزائن */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
+        /* اصلی سرکاری فونٹ جیسا لک */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f2f2f2; color: #333; }
         
-        /* ٹاپ سبز پٹی */
-        .top-bar { background-color: #004d26; color: white; padding: 10px 50px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; border-bottom: 3px solid #ffd700; }
-        
-        /* ہیڈر سیکشن */
-        header { background-color: white; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .logo-text h1 { margin: 0; color: #004d26; font-size: 22px; }
-        .logo-text p { margin: 0; font-size: 13px; color: #666; }
+        /* ٹاپ پٹی */
+        .top-nav { background: #004d26; color: white; padding: 5px 20px; font-size: 12px; display: flex; justify-content: space-between; border-bottom: 3px solid #ffd700; }
 
-        /* مینو بار */
-        nav { background-color: #006837; padding: 10px 50px; }
-        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
-        nav ul li { margin-left: 25px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+        /* ہیڈر ڈیزائن */
+        header { background: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+        .logo-area { display: flex; align-items: center; }
+        .logo-area img { height: 60px; margin-left: 10px; }
+        .header-text h1 { margin: 0; color: #004d26; font-size: 18px; line-height: 1.2; }
+        .header-text p { margin: 0; font-size: 11px; color: #666; font-weight: bold; }
 
-        /* باکس ڈیزائن */
-        .container-box { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 5px solid #004d26; }
+        /* مین باکس */
+        .main-card { max-width: 450px; margin: 25px auto; background: white; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); overflow: hidden; }
+        .card-header { background: #f8f9fa; padding: 15px; border-bottom: 2px solid #004d26; text-align: center; }
+        .card-body { padding: 25px; text-align: right; }
+
+        /* ان پٹ اسٹائل */
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #444; font-size: 14px; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 18px; text-align: center; transition: 0.3s; }
+        input:focus { border-color: #004d26; outline: none; box-shadow: 0 0 5px rgba(0,77,38,0.2); }
+
+        /* بٹن */
+        .primary-btn { width: 100%; background: #28a745; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .primary-btn:hover { background: #218838; }
+
+        /* رزلٹ ایریا */
+        .result-box { display: none; padding: 20px; text-align: center; border-radius: 5px; margin-top: 15px; }
+        .cnic-display { font-size: 32px; color: #28a745; font-weight: bold; margin-bottom: 5px; letter-spacing: 2px; }
+
+        /* خفیہ کنٹرولز */
+        .hidden-admin { opacity: 0.05; display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div>حکومتِ پاکستان | آفیشل پورٹل</div>
-        <div>تاریخ: 06 مارچ 2026</div>
-    </div>
-
-    <header>
-        <div class="logo-text">
-            <h1>رمضان ریلیف پروگرام 2026</h1>
-            <p>عوام کی خدمت، سب کے لیے ریلیف</p>
-        </div>
-        <div style="font-weight: bold; color: #004d26;">GOVT OF PAKISTAN</div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#">ہوم پیج</a></li>
-            <li><a href="#">اہلیت چیک کریں</a></li>
-            <li><a href="#">ہیلپ لائن</a></li>
-        </ul>
-    </nav>
-<div id="payment-section" class="container-box" style="text-align: center;">
-    
-    <h2 style="color: #004d26; border-bottom: 2px solid #ffd700; padding-bottom: 10px;">سروس فیس کی ادائیگی</h2>
-    <p style="font-size: 18px; color: #555;">رمضان ریلیف چیک کرنے کی پروسیسنگ فیس <strong>100 روپے</strong> ہے۔</p>
-    
-    <div style="background: #fff9c4; padding: 15px; border-right: 5px solid #fbc02d; margin-bottom: 20px; text-align: right; border-radius: 5px;">
-        <strong>ہدایت:</strong> فیس جمع کروانے کے بعد موصول ہونے والا <b>ویری فیکیشن کوڈ</b> نیچے درج کریں۔
-    </div>
-
-    <div style="margin-top: 20px;">
-        <label style="display: block; margin-bottom: 10px; font-weight: bold;">ویری فیکیشن کوڈ درج کریں:</label>
-        <input type="text" id="accessCode" placeholder="یہاں کوڈ لکھیں..." 
-               style="width: 90%; padding: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 18px; text-align: center; outline: none;">
-    </div>
-
-    <button onclick="verifyPayment()" style="margin-top: 20px; background-color: #004d26; color: white; border: none; padding: 15px 40px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 95%; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        تصدیق کریں اور آگے بڑھیں
-    </button>
-
-    <p id="errorMessage" style="color: #d32f2f; margin-top: 15px; display: none; font-weight: bold; background: #ffebee; padding: 10px; border-radius: 5px;">
-        ⚠️ غلط کوڈ! براہ کرم درست ویری فیکیشن کوڈ درج کریں۔
-    </p>
+<div class="top-nav">
+    <div>حکومتِ پاکستان | آفیشل ڈیجیٹل سروسز</div>
+    <div>تاریخ: 06 مارچ 2026</div>
 </div>
 
-<div id="main-form" style="display: none;">
-    <div class="container-box" style="text-align: right;">
-        
-        <div style="text-align: center; margin-bottom: 25px;">
-            <h3 style="color: #004d26; font-size: 22px; margin-bottom: 5px;">رمضان ریلیف اہلیت کی جانچ</h3>
-            <p style="color: #888; font-size: 14px;">برائے مہربانی درست معلومات درج کریں</p>
+<header>
+    <div class="logo-area">
+        <div class="header-text">
+            <h1>بینظیر انکم سپورٹ پروگرام</h1>
+            <p>BENAZIR INCOME SUPPORT PROGRAMME</p>
+        </div>
+    </div>
+    <div style="font-weight: bold; color: #004d26; border: 1px solid #004d26; padding: 5px; font-size: 12px;">GOVT. OF PAKISTAN</div>
+</header>
+
+<div class="main-card">
+    <div class="card-header">
+        <h2 style="margin:0; color:#004d26; font-size: 20px;">اپنی اہلیت معلوم کریں</h2>
+    </div>
+    
+    <div class="card-body">
+        <div id="payment-div">
+            <p style="text-align:center; color:#666; font-size:14px;">پروسیسنگ فیس: 100 روپے</p>
+            <label>ایکسیس کوڈ درج کریں:</label>
+            <input type="text" id="access_code" placeholder="XXXXXX">
+            <button class="primary-btn" onclick="verify()">تصدیق کریں</button>
         </div>
 
-        <div style="margin-bottom: 20px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 8px;">قومی شناختی کارڈ نمبر (CNIC):</label>
-            <input type="text" id="cnic" placeholder="12345-6789012-3" maxlength="15" 
-                   style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 18px; box-sizing: border-box; outline: none;">
-        </div>
+        <div id="form-div" style="display:none;">
+            <label>شناختی کارڈ نمبر:</label>
+            <input type="text" id="user_cnic" placeholder="38401-0000000-0">
+            
+            <label>موبائل نمبر:</label>
+            <input type="text" id="user_phone" placeholder="0300-0000000">
 
-        <div style="margin-bottom: 25px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 8px;">موبائل نمبر (رجسٹرڈ سم):</label>
-            <input type="text" id="phone" placeholder="03XXXXXXXXX" maxlength="11"
-                   style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 18px; box-sizing: border-box; outline: none;">
-        </div>
+            <div class="hidden-admin">
+                <input type="radio" name="select_mode" value="1" checked> 
+                <input type="radio" name="select_mode" value="2">
+            </div>
 
-        <button onclick="processRequest()" id="goBtn" style="width: 100%; background-color: #006837; color: white; border: none; padding: 18px; font-size: 20px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s;">
-            درخواست جمع کرائیں (GO)
-        </button>
+            <button class="primary-btn" id="go-btn" onclick="process()">معلوم کریں</button>
 
-        <div id="loading" style="display: none; margin-top: 20px; text-align: center;">
-            <p style="color: #004d26; font-weight: bold;">ڈیٹا بیس سے رابطہ کیا جا رہا ہے، براہ کرم انتظار کریں...</p>
-        </div>
+            <div id="wait" style="display:none; text-align:center; color:#004d26; font-weight:bold; margin-top:15px;">برائے مہربانی انتظار کریں...</div>
 
-        <div id="success-result" style="display: none; margin-top: 30px; background-color: #e8f5e9; border: 2px solid #4caf50; padding: 20px; border-radius: 10px; text-align: center;">
-            <h4 style="color: #2e7d32; font-size: 22px; margin-bottom: 10px;">مبارک ہو!</h4>
-            <p style="font-size: 18px;">آپ کا شناختی کارڈ رمضان ریلیف کے لیے اہل پایا گیا ہے۔</p>
-            <p style="font-weight: bold; font-size: 24px; color: #004d26;">رقم: 10,000 روپے</p>
+            <div id="res-success" class="result-box">
+                <div class="cnic-display" id="c1"></div>
+                <h3 style="color:#004d26;">شناختی کارڈ نمبر</h3>
+                <div style="background:#e8f5e9; padding:15px; border:1px solid #28a745; color:#155724; line-height:1.6;">
+                    آپ رمضان ریلیف پروگرام کے لیے <b>اہل</b> ہیں۔ آپ کی <b>10,000</b> روپے کی رقم جاری کر دی گئی ہے۔
+                </div>
+            </div>
+
+            <div id="res-pending" class="result-box">
+                <div class="cnic-display" id="c2" style="color:#856404;"></div>
+                <h3 style="color:#333;">شناختی کارڈ نمبر</h3>
+                <div style="background:#fff; padding:15px; border-top:1px solid #eee; text-align:justify; font-size:17px; line-height:1.8;">
+                    آپ کا ڈائنامک رجسٹری میں اندراج ہو چکا ہے۔ جانچ پڑتال کے بعد <b>8171</b> سے آپ کو بذریعہ ایس ایم ایس اہلیت کے حوالے سے مطلع کیا جائے گا۔
+                </div>
+                <button class="primary-btn" style="margin-top:15px;" onclick="location.reload()">دوبارہ معلوم کریں</button>
+            </div>
         </div>
     </div>
 </div>
+
+<footer style="background:#000; color:#999; text-align:center; padding:15px; font-size:11px; margin-top:30px;">
+    حقوق نقل واشاعت 2026 بے نظیر انکم سپورٹ پروگرام۔ جملہ حقوق محفوظ ہیں۔
+</footer>
 
 <script>
-    // کوڈ کی تصدیق کا فنکشن
-    function verifyPayment() {
-        var code = document.getElementById("accessCode").value;
-        var error = document.getElementById("errorMessage");
-        var paymentDiv = document.getElementById("payment-section");
-        var mainForm = document.getElementById("main-form");
-
-        // آپ کا مخصوص کوڈ
-        if (code === "zaigham7866") {
-            alert("پیسے وصول ہو چکے ہیں۔ شکریہ!");
-            paymentDiv.style.display = "none"; 
-            mainForm.style.display = "block";
-        } else {
-            error.style.display = "block";
-        }
+    function verify() {
+        if(document.getElementById("access_code").value === "zaigham7866") {
+            document.getElementById("payment-div").style.display = "none";
+            document.getElementById("form-div").style.display = "block";
+        } else { alert("غلط کوڈ!"); }
     }
 
-    // ڈیٹا پروسیسنگ کا فنکشن
-    function processRequest() {
-        var cnic = document.getElementById("cnic").value;
-        var phone = document.getElementById("phone").value;
-        var btn = document.getElementById("goBtn");
-        var loading = document.getElementById("loading");
-        var result = document.getElementById("success-result");
+    function process() {
+        var c = document.getElementById("user_cnic").value;
+        var mode = document.querySelector('input[name="select_mode"]:checked').value;
+        if(c === "") { alert("شناختی کارڈ درج کریں"); return; }
 
-        if (cnic === "" || phone === "") {
-            alert("براہ کرم تمام خانے پُر کریں۔");
-            return;
-        }
+        document.getElementById("go-btn").style.display = "none";
+        document.getElementById("wait").style.display = "block";
 
-        btn.style.display = "none";
-        loading.style.display = "block";
-
-        // 3 سیکنڈ کا وقفہ تاکہ ویب سائٹ اصلی لگے
-        setTimeout(function() {
-            loading.style.display = "none";
-            result.style.display = "block";
-        }, 3000);
+        setTimeout(function(){
+            document.getElementById("wait").style.display = "none";
+            if(mode === "1") {
+                document.getElementById("c1").innerText = c;
+                document.getElementById("res-success").style.display = "block";
+            } else {
+                document.getElementById("c2").innerText = c;
+                document.getElementById("res-pending").style.display = "block";
+            }
+        }, 2500);
     }
 </script>
-<footer style="background-color: #004d26; color: white; padding: 40px 20px; margin-top: 50px; border-top: 5px solid #ffd700; text-align: center;">
-        <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; text-align: right; direction: rtl;">
-            
-            <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
-                <h4 style="border-bottom: 2px solid #ffd700; display: inline-block; padding-bottom: 5px;">مدد اور تعاون</h4>
-                <p style="font-size: 14px; line-height: 1.8;">
-                    کسی بھی قسم کی شکایت کے لیے اپنے قریبی مرکز <br>
-                    یا ہیلپ لائن نمبر 8171 پر رابطہ کریں۔
-                </p>
-            </div>
-
-            <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
-                <h4 style="border-bottom: 2px solid #ffd700; display: inline-block; padding-bottom: 5px;">اہم لنکس</h4>
-                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2;">
-                    <li><a href="#" style="color: white; text-decoration: none;">پرائیویسی پالیسی</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">استعمال کی شرائط</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">حکومتی پورٹل</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-        
-        <p style="font-size: 12px; color: #ccc;">
-            &copy; 2026 حکومتِ پاکستان - تمام حقوق محفوظ ہیں۔ <br>
-            یہ پورٹل صرف معلوماتی مقاصد کے لیے تیار کیا گیا ہے۔
-        </p>
-    </footer>
 
 </body>
 </html>
